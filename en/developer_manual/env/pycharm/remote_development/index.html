@@ -1,0 +1,2611 @@
+<!-- Elements added to main will be displayed on all pages -->
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../../../images/crane.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Remote development - Assemblyline 4</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#remote-development" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Assemblyline 4" class="md-header__button md-logo" aria-label="Assemblyline 4" data-md-component="logo">
+      
+  <img src="../../../../../images/crane.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Assemblyline 4
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Remote development
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="../../../../../fr/developer_manual/env/pycharm/remote_development/" hreflang="fr" class="md-select__link">
+                    Français
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/CybercentreCanada/assemblyline4_docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../" class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../overview/how_it_works/" class="md-tabs__link">
+        Overview
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../user_manual/submitting_file/" class="md-tabs__link">
+        User's manual
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../installation/deployment/" class="md-tabs__link">
+        Installation
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../administration/signature_management/" class="md-tabs__link">
+        Administration
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../integration/ingestion_method/" class="md-tabs__link">
+        Integration
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../getting_started/" class="md-tabs__link md-tabs__link--active">
+        Developer's guide
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Assemblyline 4" class="md-nav__button md-logo" aria-label="Assemblyline 4" data-md-component="logo">
+      
+  <img src="../../../../../images/crane.png" alt="logo">
+
+    </a>
+    Assemblyline 4
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/CybercentreCanada/assemblyline4_docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Overview" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/how_it_works/" class="md-nav__link">
+        How it works
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/services/" class="md-nav__link">
+        Assemblyline services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/community_services/" class="md-nav__link">
+        Community services
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          User's manual
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="User's manual" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          User's manual
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_manual/submitting_file/" class="md-nav__link">
+        Submitting a file for analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_manual/results/" class="md-nav__link">
+        Assemblyline results
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_manual/searching/" class="md-nav__link">
+        Searching
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Installation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Installation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Installation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/deployment/" class="md-nav__link">
+        Choose your deployment type
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/appliance_docker/" class="md-nav__link">
+        Appliance installation (Docker)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/appliance/" class="md-nav__link">
+        Appliance installation (MicroK8s)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/cluster/" class="md-nav__link">
+        Cluster installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" data-md-state="indeterminate" type="checkbox" id="__nav_4_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_5">
+          Configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/config_file/" class="md-nav__link">
+        Configuration YAML file
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/authentication/" class="md-nav__link">
+        Authentication section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/core/" class="md-nav__link">
+        Core component section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/datasources/" class="md-nav__link">
+        Data sources section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/datastore/" class="md-nav__link">
+        Database section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/filestore/" class="md-nav__link">
+        File storage section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/logging/" class="md-nav__link">
+        Logging section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/services/" class="md-nav__link">
+        Service section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/submission/" class="md-nav__link">
+        Submission section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/system/" class="md-nav__link">
+        System section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/ui/" class="md-nav__link">
+        User Interface section
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/classification_engine/" class="md-nav__link">
+        Classification engine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/monitoring/" class="md-nav__link">
+        Monitoring with ELK
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Administration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Administration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Administration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../administration/signature_management/" class="md-nav__link">
+        Signature Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../administration/source_management/" class="md-nav__link">
+        Signature Source Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../administration/service_management/" class="md-nav__link">
+        Service management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../administration/system_safelist/" class="md-nav__link">
+        System safelist
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../administration/user_management/" class="md-nav__link">
+        User Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../administration/troubleshooting/" class="md-nav__link">
+        Troubleshooting / FAQ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Integration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Integration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/ingestion_method/" class="md-nav__link">
+        Choosing your ingestion method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/key_generation/" class="md-nav__link">
+        Generating an API key
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/python/" class="md-nav__link">
+        Python Client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/java/" class="md-nav__link">
+        Java Client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/rest/" class="md-nav__link">
+        RESTful API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Developer's guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developer's guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Developer's guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" type="checkbox" id="__nav_7_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_1">
+          Setup Environment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Setup Environment" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          Setup Environment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1_2" data-md-state="indeterminate" type="checkbox" id="__nav_7_1_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_1_2">
+          VSCode
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="VSCode" data-md-level="3">
+        <label class="md-nav__title" for="__nav_7_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          VSCode
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vscode/setup_script/" class="md-nav__link">
+        Setup script
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vscode/use_vscode/" class="md-nav__link">
+        Use VSCode
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1_3" type="checkbox" id="__nav_7_1_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_1_3">
+          Pycharm
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Pycharm" data-md-level="3">
+        <label class="md-nav__title" for="__nav_7_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pycharm
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_development/" class="md-nav__link">
+        Local development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Remote development
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Remote development
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#on-the-target-vm" class="md-nav__link">
+    On the target VM
+  </a>
+  
+    <nav class="md-nav" aria-label="On the target VM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operating-system" class="md-nav__link">
+    Operating system
+  </a>
+  
+    <nav class="md-nav" aria-label="Operating system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-target-vm" class="md-nav__link">
+    Update target VM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-pre-requisite-software" class="md-nav__link">
+    Installing pre-requisite software
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing pre-requisite software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-ssh-daemon" class="md-nav__link">
+    Install SSH Daemon
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-assemblyline-apt-dependencies" class="md-nav__link">
+    Install Assemblyline APT dependencies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-python-39" class="md-nav__link">
+    Install Python 3.9
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-docker" class="md-nav__link">
+    Installing Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-docker-compose" class="md-nav__link">
+    Installing docker-compose
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing docker-compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#securing-docker-for-remote-access" class="md-nav__link">
+    Securing Docker for remote access
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-assemblyline-specific-configuration" class="md-nav__link">
+    Adding Assemblyline specific configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding Assemblyline specific configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assemblyline-folders" class="md-nav__link">
+    Assemblyline folders
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assemblyline-dev-configuration-files" class="md-nav__link">
+    Assemblyline dev configuration files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-python-virtual-environments" class="md-nav__link">
+    Setup Python Virtual Environments
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup Python Virtual Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-core-virtualenv" class="md-nav__link">
+    Setting up Core Virtualenv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-service-virtualenv-optional" class="md-nav__link">
+    Setting up Service Virtualenv (optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#on-your-desktop" class="md-nav__link">
+    On your desktop
+  </a>
+  
+    <nav class="md-nav" aria-label="On your desktop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-your-docker-certs-and-install-them" class="md-nav__link">
+    Get your Docker certs and install them
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-pycharm" class="md-nav__link">
+    Install PyCharm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-git" class="md-nav__link">
+    Install Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-repositories" class="md-nav__link">
+    Clone repositories
+  </a>
+  
+    <nav class="md-nav" aria-label="Clone repositories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-components" class="md-nav__link">
+    Core components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#services-optional" class="md-nav__link">
+    Services (optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-pycharm-for-core" class="md-nav__link">
+    Setup PyCharm for core
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-pycharm-for-service-optional" class="md-nav__link">
+    Setup PyCharm for service (optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-pycharm" class="md-nav__link">
+    Use Pycharm
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use_pycharm/" class="md-nav__link">
+        Use PyCharm
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" data-md-state="indeterminate" type="checkbox" id="__nav_7_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_2">
+          Services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Services" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          Services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../services/developing_an_assemblyline_service/" class="md-nav__link">
+        Developing a service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../services/adding_a_service_updater/" class="md-nav__link">
+        Adding a Service Updater
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../services/run_your_service/" class="md-nav__link">
+        Run your service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2_4" data-md-state="indeterminate" type="checkbox" id="__nav_7_2_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_2_4">
+          Advanced development
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Advanced development" data-md-level="3">
+        <label class="md-nav__title" for="__nav_7_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Advanced development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../services/advanced/service_base/" class="md-nav__link">
+        ServiceBase Class
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../services/advanced/service_updater_base/" class="md-nav__link">
+        ServiceUpdater Class
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../services/advanced/request/" class="md-nav__link">
+        Request Class
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../services/advanced/result/" class="md-nav__link">
+        Result Class
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../services/advanced/result_section/" class="md-nav__link">
+        ResultSection Class
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../services/advanced/service_manifest/" class="md-nav__link">
+        Service manifest
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../services/advanced/service_updater_upgrade/" class="md-nav__link">
+        How-to: Upgrade Service Updater for Assemblyline 4.1+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/infrastructure/" class="md-nav__link">
+        Infrastructure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/frontend/" class="md-nav__link">
+        Frontend
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docs/docs/" class="md-nav__link">
+        Documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#on-the-target-vm" class="md-nav__link">
+    On the target VM
+  </a>
+  
+    <nav class="md-nav" aria-label="On the target VM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operating-system" class="md-nav__link">
+    Operating system
+  </a>
+  
+    <nav class="md-nav" aria-label="Operating system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-target-vm" class="md-nav__link">
+    Update target VM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-pre-requisite-software" class="md-nav__link">
+    Installing pre-requisite software
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing pre-requisite software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-ssh-daemon" class="md-nav__link">
+    Install SSH Daemon
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-assemblyline-apt-dependencies" class="md-nav__link">
+    Install Assemblyline APT dependencies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-python-39" class="md-nav__link">
+    Install Python 3.9
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-docker" class="md-nav__link">
+    Installing Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-docker-compose" class="md-nav__link">
+    Installing docker-compose
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing docker-compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#securing-docker-for-remote-access" class="md-nav__link">
+    Securing Docker for remote access
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-assemblyline-specific-configuration" class="md-nav__link">
+    Adding Assemblyline specific configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding Assemblyline specific configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assemblyline-folders" class="md-nav__link">
+    Assemblyline folders
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assemblyline-dev-configuration-files" class="md-nav__link">
+    Assemblyline dev configuration files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-python-virtual-environments" class="md-nav__link">
+    Setup Python Virtual Environments
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup Python Virtual Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-core-virtualenv" class="md-nav__link">
+    Setting up Core Virtualenv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-service-virtualenv-optional" class="md-nav__link">
+    Setting up Service Virtualenv (optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#on-your-desktop" class="md-nav__link">
+    On your desktop
+  </a>
+  
+    <nav class="md-nav" aria-label="On your desktop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-your-docker-certs-and-install-them" class="md-nav__link">
+    Get your Docker certs and install them
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-pycharm" class="md-nav__link">
+    Install PyCharm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-git" class="md-nav__link">
+    Install Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-repositories" class="md-nav__link">
+    Clone repositories
+  </a>
+  
+    <nav class="md-nav" aria-label="Clone repositories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-components" class="md-nav__link">
+    Core components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#services-optional" class="md-nav__link">
+    Services (optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-pycharm-for-core" class="md-nav__link">
+    Setup PyCharm for core
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-pycharm-for-service-optional" class="md-nav__link">
+    Setup PyCharm for service (optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-pycharm" class="md-nav__link">
+    Use Pycharm
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/CybercentreCanada/assemblyline4_docs/edit/master/docs/developer_manual/env/pycharm/remote_development.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="remote-development">Remote development<a class="headerlink" href="#remote-development" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To use this setup, we assume that you have a paid version of PyCharm (<a href="https://www.jetbrains.com/lp/pycharm-pro/">Pycharm professional</a>) because we will be using features that are exclusive to the Professional version. If you don't, use the <a href="../local_development">Local development</a> setup instead.</p>
+</div>
+<p>This document will show you how to set up your target virtual machine for remote development which means that you will run your IDE on your desktop and run the Assemblyline containers on the remote target VM.</p>
+<h2 id="on-the-target-vm">On the target VM<a class="headerlink" href="#on-the-target-vm" title="Permanent link">&para;</a></h2>
+<h3 id="operating-system">Operating system<a class="headerlink" href="#operating-system" title="Permanent link">&para;</a></h3>
+<p>For this document, we will assume that you are working on a fresh installation of <a href="https://releases.ubuntu.com/20.04.3/ubuntu-20.04.3-live-server-amd64.iso">Ubuntu 20.04 Server</a>.</p>
+<h4 id="update-target-vm">Update target VM<a class="headerlink" href="#update-target-vm" title="Permanent link">&para;</a></h4>
+<p>Make sure Ubuntu is running the latest software
+<div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt dist-upgrade
+</code></pre></div></p>
+<p>Reboot if needed
+<div class="highlight"><pre><span></span><code>sudo reboot
+</code></pre></div></p>
+<h3 id="installing-pre-requisite-software">Installing pre-requisite software<a class="headerlink" href="#installing-pre-requisite-software" title="Permanent link">&para;</a></h3>
+<h4 id="install-ssh-daemon">Install SSH Daemon<a class="headerlink" href="#install-ssh-daemon" title="Permanent link">&para;</a></h4>
+<p>We need to make sure the remote target has an SSH daemon installed for remote debugging
+<div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt install -y ssh
+</code></pre></div></p>
+<h4 id="install-assemblyline-apt-dependencies">Install Assemblyline APT dependencies<a class="headerlink" href="#install-assemblyline-apt-dependencies" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt-get install -yy libfuzzy2 libmagic1 libldap-2.4-2 libsasl2-2 build-essential libffi-dev libfuzzy-dev libldap2-dev libsasl2-dev libssl-dev
+</code></pre></div>
+<h4 id="install-python-39">Install Python 3.9<a class="headerlink" href="#install-python-39" title="Permanent link">&para;</a></h4>
+<p>Assemblyline 4 containers are now all built on Python 3.9 therefore we will install Python 3.9.</p>
+<div class="highlight"><pre><span></span><code>sudo apt install -y software-properties-common
+sudo add-apt-repository -y ppa:deadsnakes/ppa
+sudo apt-get install -yy python3-venv python3.9 python3.9-dev python3.9-venv libffi7
+</code></pre></div>
+<h4 id="installing-docker">Installing Docker<a class="headerlink" href="#installing-docker" title="Permanent link">&para;</a></h4>
+<p>Follow these simple commands to get Docker running on your machine:
+<div class="highlight"><pre><span></span><code><span class="c1"># Add Docker repository</span>
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository <span class="s2">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> stable&quot;</span>
+
+<span class="c1"># Install Docker</span>
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+
+<span class="c1"># Test Docker installation</span>
+sudo docker run hello-world
+</code></pre></div></p>
+<h4 id="installing-docker-compose">Installing docker-compose<a class="headerlink" href="#installing-docker-compose" title="Permanent link">&para;</a></h4>
+<p>Installing <code>docker-compose</code> is done the same way on all Linux distributions. Follow these simple instructions:
+<div class="highlight"><pre><span></span><code><span class="c1"># Install docker-compose</span>
+sudo curl -L <span class="s2">&quot;https://github.com/docker/compose/releases/download/1.28.5/docker-compose-</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">&quot;</span> -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+<span class="c1"># Test docker-compose installation</span>
+docker-compose --version
+</code></pre></div></p>
+<h5 id="securing-docker-for-remote-access">Securing Docker for remote access<a class="headerlink" href="#securing-docker-for-remote-access" title="Permanent link">&para;</a></h5>
+<p>We are going to make your Docker server accessible from the internet. To make it secure, we need to enable TLS authentication in the Docker daemon. Anywhere that you see assemblyline.local, you can change that value to your own DNS name. If you're planning on using an IP, you'll have to set a <code>static IP</code> to the remote VM because your certificate (cert) will only allow connections to that IP.
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a cert directory</span>
+mkdir ~/certs
+<span class="nb">cd</span> ~/certs
+
+<span class="c1"># Create a CA (Remember the password you&#39;ve set)</span>
+openssl genrsa -aes256 -out ca-key.pem <span class="m">4096</span>
+
+<span class="c1"># Create a certificate-signing request (ignore the .rng error)</span>
+openssl req -new -x509 -days <span class="m">365</span> -key ca-key.pem -sha256 -out ca.pem -subj <span class="s2">&quot;/C=CA/ST=Ontario/L=Ottawa/O=CCCS/CN=assemblyline.local&quot;</span>
+
+<span class="c1"># Creating the server public/private key</span>
+openssl genrsa -out server-key.pem <span class="m">4096</span>
+openssl req -subj <span class="s2">&quot;/CN=assemblyline.local&quot;</span> -sha256 -new -key server-key.pem -out server.csr
+<span class="nb">echo</span> <span class="nv">subjectAltName</span> <span class="o">=</span> DNS:assemblyline.local,IP:<span class="sb">`</span>ip route get <span class="m">8</span>.8.8.8 <span class="p">|</span> grep <span class="m">8</span>.8.8.8 <span class="p">|</span> awk <span class="s1">&#39;{ print $7 }&#39;</span><span class="sb">`</span>,IP:127.0.0.1 &gt;&gt; extfile.cnf
+<span class="nb">echo</span> <span class="nv">extendedKeyUsage</span> <span class="o">=</span> serverAuth &gt;&gt; extfile.cnf
+openssl x509 -req -days <span class="m">365</span> -sha256 -in server.csr -CA ca.pem -CAkey ca-key.pem -CAcreateserial -out server-cert.pem -extfile extfile.cnf
+
+<span class="c1"># Creating the client public/private key</span>
+openssl genrsa -out key.pem <span class="m">4096</span>
+openssl req -subj <span class="s1">&#39;/CN=client&#39;</span> -new -key key.pem -out client.csr
+<span class="nb">echo</span> <span class="nv">extendedKeyUsage</span> <span class="o">=</span> clientAuth &gt; extfile-client.cnf
+openssl x509 -req -days <span class="m">365</span> -sha256 -in client.csr -CA ca.pem -CAkey ca-key.pem -CAcreateserial -out cert.pem -extfile extfile-client.cnf
+
+<span class="c1"># Remove unnecessary files</span>
+rm -v client.csr server.csr extfile.cnf extfile-client.cnf
+
+<span class="c1"># Change private and public key permissions</span>
+chmod -v <span class="m">0400</span> ca-key.pem key.pem server-key.pem
+chmod -v <span class="m">0444</span> ca.pem server-cert.pem cert.pem
+
+<span class="c1"># Moving server certs to their permanent location</span>
+sudo mkdir -p /etc/docker/certs
+sudo mv server*.pem /etc/docker/certs
+sudo cp ca.pem /etc/docker/certs
+
+<span class="c1"># Add system.d override configuration for Docker to start the TCP with TLS port</span>
+sudo mkdir -p /etc/systemd/system/docker.service.d/
+sudo su -c <span class="s1">&#39;echo &quot;# /etc/systemd/system/docker.service.d/override.conf</span>
+<span class="s1">[Service]</span>
+<span class="s1">ExecStart=</span>
+<span class="s1">ExecStart=/usr/bin/dockerd -H fd:// --tlsverify --tlscacert=/etc/docker/certs/ca.pem --tlscert=/etc/docker/certs/server-cert.pem --tlskey=/etc/docker/certs/server-key.pem -H 0.0.0.0:2376&quot; &gt;&gt; /etc/systemd/system/docker.service.d/override.conf&#39;</span>
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+<span class="c1"># Test the TLS connection with curl</span>
+curl https://127.0.0.1:2376/images/json --cert ~/certs/cert.pem --key ~/certs/key.pem --cacert ~/certs/ca.pem
+
+<span class="c1"># Create an archive with the client certs</span>
+tar czvf certs.tgz ca.pem cert.pem key.pem
+</code></pre></div></p>
+<p>The archive file <code>~/certs/certs.tgz</code> will have to be transferred to your desktop. We will use its content to log into the Docker daemon from your desktop.</p>
+<h3 id="adding-assemblyline-specific-configuration">Adding Assemblyline specific configuration<a class="headerlink" href="#adding-assemblyline-specific-configuration" title="Permanent link">&para;</a></h3>
+<h4 id="assemblyline-folders">Assemblyline folders<a class="headerlink" href="#assemblyline-folders" title="Permanent link">&para;</a></h4>
+<p>Because Assemblyline uses its own set of folders inside the core, service-server, and UI container, we have to create the same folder structure here so that we can run the components in debug mode.
+<div class="highlight"><pre><span></span><code>sudo mkdir -p ~/git
+
+sudo mkdir -p /etc/assemblyline
+sudo mkdir -p /var/cache/assemblyline
+sudo mkdir -p /var/lib/assemblyline
+sudo mkdir -p /var/log/assemblyline
+
+sudo chown <span class="nv">$USER</span> /etc/assemblyline
+sudo chown <span class="nv">$USER</span> /var/cache/assemblyline
+sudo chown <span class="nv">$USER</span> /var/lib/assemblyline
+sudo chown <span class="nv">$USER</span> /var/log/assemblyline
+</code></pre></div></p>
+<h4 id="assemblyline-dev-configuration-files">Assemblyline dev configuration files<a class="headerlink" href="#assemblyline-dev-configuration-files" title="Permanent link">&para;</a></h4>
+<p>Here we will create configuration files that match the default dev <code>docker-compose</code> configuration files so that we can swap any of the components to the one that is being debugged.
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;enforce: true&quot;</span> &gt; /etc/assemblyline/classification.yml
+<span class="nb">echo</span> <span class="s2">&quot;</span>
+<span class="s2">auth:</span>
+<span class="s2">  internal:</span>
+<span class="s2">    enabled: true</span>
+
+<span class="s2">core:</span>
+<span class="s2">  alerter:</span>
+<span class="s2">    delay: 0</span>
+<span class="s2">  metrics:</span>
+<span class="s2">    apm_server:</span>
+<span class="s2">      server_url: http://localhost:8200/</span>
+<span class="s2">    elasticsearch:</span>
+<span class="s2">      hosts: [http://elastic:devpass@localhost]</span>
+
+<span class="s2">datastore:</span>
+<span class="s2">  ilm:</span>
+<span class="s2">    indexes:</span>
+<span class="s2">      alert:</span>
+<span class="s2">        unit: m</span>
+<span class="s2">      error:</span>
+<span class="s2">        unit: m</span>
+<span class="s2">      file:</span>
+<span class="s2">        unit: m</span>
+<span class="s2">      result:</span>
+<span class="s2">        unit: m</span>
+<span class="s2">      submission:</span>
+<span class="s2">        unit: m</span>
+
+<span class="s2">filestore:</span>
+<span class="s2">  cache:</span>
+<span class="s2">    - file:///var/cache/assemblyline/</span>
+
+<span class="s2">logging:</span>
+<span class="s2">  log_level: INFO</span>
+<span class="s2">  log_as_json: false</span>
+
+<span class="s2">ui:</span>
+<span class="s2">  audit: false</span>
+<span class="s2">  debug: false</span>
+<span class="s2">  enforce_quota: false</span>
+<span class="s2">  fqdn: `ip route get 8.8.8.8 | grep 8.8.8.8 | awk &#39;{ print </span><span class="nv">$7</span><span class="s2"> }&#39;`.nip.io</span>
+<span class="s2">&quot;</span> &gt; /etc/assemblyline/config.yml
+</code></pre></div></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As you can see in the last command we are setting the FQDN to YOUR_IP.nip.io. NIP.IO is a service that will resolve the first part of the domain <code>YOUR_IP</code>.nip.io to its IP value. We use this to fake DNS when there are none. This is especially useful for oAuth because some providers are forbidding redirect URLs to IPs. You can also replace the FQDN with your own DNS name if you have one.</p>
+</div>
+<h3 id="setup-python-virtual-environments">Setup Python Virtual Environments<a class="headerlink" href="#setup-python-virtual-environments" title="Permanent link">&para;</a></h3>
+<p>We will make two Python virtual environments:</p>
+<ul>
+<li>One for the core components</li>
+<li>One for services</li>
+</ul>
+<p>That should be enough to cover most cases. If a service has conflicting dependencies with another, I suggest you create a separate virtualenv for it when you try to debug it. The core components should all be fine in the same environment.</p>
+<h4 id="setting-up-core-virtualenv">Setting up Core Virtualenv<a class="headerlink" href="#setting-up-core-virtualenv" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Make sure the venv directory exists and we are in it</span>
+mkdir -p ~/venv
+<span class="nb">cd</span> ~/venv
+
+<span class="c1"># Create the virtualenv</span>
+python3.9 -m venv core
+
+<span class="c1"># Install Assemblyline packages with their test dependencies</span>
+~/venv/core/bin/pip install assemblyline<span class="o">[</span>test<span class="o">]</span> assemblyline-core<span class="o">[</span>test<span class="o">]</span> assemblyline-service-server<span class="o">[</span>test<span class="o">]</span> assemblyline-ui<span class="o">[</span>test<span class="o">]</span>
+
+<span class="c1"># Remove Assemblyline packages because we will use the live code</span>
+~/venv/core/bin/pip uninstall -y assemblyline assemblyline-core assemblyline-service-server assemblyline-ui
+</code></pre></div>
+<h4 id="setting-up-service-virtualenv-optional">Setting up Service Virtualenv (optional)<a class="headerlink" href="#setting-up-service-virtualenv-optional" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Make sure the venv directory exists and we are in it</span>
+mkdir -p ~/venv
+<span class="nb">cd</span> ~/venv
+
+<span class="c1"># Create the virtualenv</span>
+python3.9 -m venv services
+
+<span class="c1"># Install Assemblyline Python client</span>
+~/venv/services/bin/pip install assemblyline-client
+
+<span class="c1"># Install Assemblyline service packages</span>
+~/venv/services/bin/pip install assemblyline-service-client assemblyline-v4-service
+
+<span class="c1"># Remove Assemblyline packages because we will use the live code</span>
+~/venv/services/bin/pip uninstall -y assemblyline assemblyline-core assemblyline-service-client assemblyline-v4-service
+</code></pre></div>
+<h2 id="on-your-desktop">On your desktop<a class="headerlink" href="#on-your-desktop" title="Permanent link">&para;</a></h2>
+<p>We are now done setting up the target VM. For the rest of the instructions, we will mainly setup your PyCharm IDE to interface with the target VM.</p>
+<h3 id="get-your-docker-certs-and-install-them">Get your Docker certs and install them<a class="headerlink" href="#get-your-docker-certs-and-install-them" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>mkdir -p ~/docker_certs
+<span class="nb">cd</span> ~/docker_certs
+scp USER_OF_TARGET_VM@IP_OF_TARGET_VM:certs/certs.tgz ~/docker_certs/
+tar zxvf certs.tgz
+rm certs.tgz
+</code></pre></div>
+<h3 id="install-pycharm">Install PyCharm<a class="headerlink" href="#install-pycharm" title="Permanent link">&para;</a></h3>
+<p>You can download PyCharm Professional directly from <a href="https://www.jetbrains.com/pycharm/">JetBrains</a>'s website but if your desktop is running Ubuntu 20.04, you can just install it with <code>snap</code>:</p>
+<div class="highlight"><pre><span></span><code>sudo snap install --classic pycharm-professional
+</code></pre></div>
+<h3 id="install-git">Install Git<a class="headerlink" href="#install-git" title="Permanent link">&para;</a></h3>
+<p>You can get Git directly from <a href="https://git-scm.com/downloads">GIT</a>'s website but if your desktop is running Ubuntu 20.04 you can just install it with <code>APT</code>:
+<div class="highlight"><pre><span></span><code>sudo apt install -y git
+</code></pre></div></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You should add your desktop SSH keys to your GitHub account to use Git via SSH. Follow these instructions to do so: <a href="https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">GitHub Help</a></p>
+</div>
+<h3 id="clone-repositories">Clone repositories<a class="headerlink" href="#clone-repositories" title="Permanent link">&para;</a></h3>
+<h4 id="core-components">Core components<a class="headerlink" href="#core-components" title="Permanent link">&para;</a></h4>
+<p>Create the core working directory
+<div class="highlight"><pre><span></span><code>mkdir -p ~/git/alv4
+<span class="nb">cd</span> ~/git/alv4
+</code></pre></div></p>
+<p>Clone Assemblyline's repositories</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Git via SSH</label><div class="tabbed-content">
+<p>Use SSH if you have your SSH id_rsa file configured to your GitHub account
+<div class="highlight"><pre><span></span><code>git clone git@github.com:CybercentreCanada/assemblyline-base.git
+git clone git@github.com:CybercentreCanada/assemblyline-core.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-client.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-server.git
+git clone git@github.com:CybercentreCanada/assemblyline-ui.git
+git clone git@github.com:CybercentreCanada/assemblyline-v4-service.git
+</code></pre></div></p>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Git via HTTPS</label><div class="tabbed-content">
+<p>Use HTTPS if you don't have your GitHub account configured with an SSH key
+<div class="highlight"><pre><span></span><code>git clone https://github.com/CybercentreCanada/assemblyline-base.git
+git clone https://github.com/CybercentreCanada/assemblyline-core.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-client.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-server.git
+git clone https://github.com/CybercentreCanada/assemblyline-ui.git
+git clone https://github.com/CybercentreCanada/assemblyline-v4-service.git
+</code></pre></div></p>
+</div>
+</div>
+<h4 id="services-optional">Services (optional)<a class="headerlink" href="#services-optional" title="Permanent link">&para;</a></h4>
+<p>Create the service working directory
+<div class="highlight"><pre><span></span><code>mkdir -p ~/git/services
+<span class="nb">cd</span> ~/git/services
+</code></pre></div></p>
+<p>Clone Assemblyline's services repositories</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Git via SSH</label><div class="tabbed-content">
+<p>Use SSH if you have your SSH id_rsa file configured to your GitHub account
+<div class="highlight"><pre><span></span><code>git clone git@github.com:CybercentreCanada/assemblyline-service-antivirus.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-apkaye.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-avclass.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-beaver.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-characterize.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-configextractor.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-cuckoo.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-deobfuscripter.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-emlparser.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-espresso.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-extract.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-floss.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-frankenstrings.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-iparse.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-metadefender.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-metapeek.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-oletools.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-pdfid.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-peepdf.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-pefile.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-pixaxe.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-safelist.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-sigma.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-suricata.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-swiffer.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-torrentslicer.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-unpacker.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-unpacme.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-vipermonkey.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-virustotal-dynamic.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-virustotal-static.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-XLMMacroDeobfuscator.git
+git clone git@github.com:CybercentreCanada/assemblyline-service-yara.git
+</code></pre></div></p>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Git via HTTPS</label><div class="tabbed-content">
+<p>Use HTTPS if you don't have your GitHub account configured with an SSH key
+<div class="highlight"><pre><span></span><code>git clone https://github.com/CybercentreCanada/assemblyline-service-antivirus.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-apkaye.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-avclass.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-beaver.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-characterize.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-configextractor.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-cuckoo.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-deobfuscripter.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-emlparser.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-espresso.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-extract.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-floss.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-frankenstrings.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-iparse.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-metadefender.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-metapeek.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-oletools.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-pdfid.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-peepdf.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-pefile.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-pixaxe.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-safelist.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-sigma.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-suricata.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-swiffer.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-torrentslicer.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-unpacker.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-unpacme.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-vipermonkey.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-virustotal-dynamic.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-virustotal-static.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-XLMMacroDeobfuscator.git
+git clone https://github.com/CybercentreCanada/assemblyline-service-yara.git
+</code></pre></div></p>
+</div>
+</div>
+<h3 id="setup-pycharm-for-core">Setup PyCharm for core<a class="headerlink" href="#setup-pycharm-for-core" title="Permanent link">&para;</a></h3>
+<p>Start with loading the core directory in Pycharm:</p>
+<div class="admonition example">
+<p class="admonition-title">Load core folder</p>
+<ol>
+<li>Load Pycharm Professional<ul>
+<li>Choose whatever configuration option you want until the <code>Welcome screen</code></li>
+</ul>
+</li>
+<li>Click the <code>Open</code> button</li>
+<li>Choose the <code>~/git/alv4</code> directory</li>
+</ol>
+</div>
+<p>The setup of the remote deployment interpreter:</p>
+<div class="admonition example">
+<p class="admonition-title">Setup core remote interpreter</p>
+<ol>
+<li>Click <code>Files</code> -&gt; <code>Settings</code></li>
+<li>Select <code>Project: alv4</code> -&gt; <code>Python Interpreter</code></li>
+<li>Click the <code>cog wheel</code> on the top right -&gt; <code>Add</code></li>
+<li>Select <code>SSH Interpreter</code> -&gt; <code>New Configuration</code><ul>
+<li>Host: IP or DNS name of your target VM</li>
+<li>Username: username of the user on the target VM</li>
+<li>Port: 22 unless you changed it...</li>
+</ul>
+</li>
+<li>Click <code>Next</code></li>
+<li>Put your target VM password in the box, check <code>Save password</code>, and click <code>Next</code></li>
+<li>In the next window, do the following:<ul>
+<li>For the <code>interpreter box</code>, click the little <code>folder</code> and select your core venv (<code>/home/YOUR_TARGET_USER/venv/core/bin/python3.9</code>)</li>
+<li>For the <code>Sync folders</code> box, click the little <code>folder</code> and for the remote path set the path to: <code>/home/YOUR_TARGET_USER/git/alv4</code> then click <code>OK</code> (ensure target directory has write permissions for all users)</li>
+<li>Make sure <code>Automatically upload files to the server</code> is checked</li>
+<li>Make sure  <code>Execute code using this interpreter with root privileges via sudo</code> is checked</li>
+<li>Hit <code>Finish</code></li>
+</ul>
+</li>
+<li>Click <code>Ok</code></li>
+<li>Let it load the interpreter and do the transfers</li>
+</ol>
+</div>
+<p>Finally link Docker for remote management:</p>
+<div class="admonition example">
+<p class="admonition-title">Setup Docker remote management</p>
+<ol>
+<li>Click <code>Files</code> -&gt; <code>Settings</code></li>
+<li>Select <code>build, Execution, Deployment</code> -&gt; <code>Docker</code></li>
+<li>Click the little <code>+</code> on top left</li>
+<li>Select <code>TCP Socket</code><ul>
+<li>In engine API URL put: <code>https://TARGET_VM_IP:2376</code></li>
+<li>In Certificates folder, click the little folder and browse to <code>~/docker_certs</code> directory</li>
+</ul>
+</li>
+<li>Click <code>OK</code></li>
+</ol>
+</div>
+<h3 id="setup-pycharm-for-service-optional">Setup PyCharm for service (optional)<a class="headerlink" href="#setup-pycharm-for-service-optional" title="Permanent link">&para;</a></h3>
+<p>Start with loading the core directory in PyCharm:</p>
+<div class="admonition example">
+<p class="admonition-title">Load services folder</p>
+<ol>
+<li>From your core PyCharm window open the <code>File menu</code> then click <code>Open</code></li>
+<li>Choose the <code>~/git/services</code> directory</li>
+<li>Select <code>New Window</code></li>
+</ol>
+</div>
+<p>The setup of the remote deployment interpreter:</p>
+<div class="admonition example">
+<p class="admonition-title">Setup services remote interpreter</p>
+<ol>
+<li>Click <code>Files</code> -&gt; <code>Settings</code></li>
+<li>Select <code>Project: services</code> -&gt; <code>Python Interpreter</code></li>
+<li>Click the <code>cog wheel</code> on the top right -&gt; <code>Add</code></li>
+<li>Select <code>SSH Interpreter</code> -&gt; <code>New Configuration</code><ul>
+<li>Host: IP or DNS name of your target VM</li>
+<li>Username: username of the user on the target VM</li>
+<li>Port: 22 unless you changed it...</li>
+</ul>
+</li>
+<li>Click <code>Next</code></li>
+<li>Put your target VM password in the box, check <code>Save password</code>, and click <code>Next</code></li>
+<li>In the next window, do the following:<ul>
+<li>For the <code>interpreter box</code>, click the little <code>folder</code> and select your core venv (<code>/home/YOUR_TARGET_USER/venv/services/bin/python3.9</code>)</li>
+<li>For the <code>Sync folders</code> box, click the little <code>folder</code> and for the remote path set the path to: <code>/home/YOUR_TARGET_USER/git/services</code> then click <code>OK</code> (ensure target directory has write permissions for all users)</li>
+<li>Make sure <code>Automatically upload files to the server</code> is checked</li>
+<li>Make sure  <code>Execute code using this interpreter with root privileges via sudo</code> is checked</li>
+<li>Hit <code>Finish</code></li>
+</ul>
+</li>
+<li>Click <code>Ok</code></li>
+<li>Let it load the interpreter and do the transfers</li>
+</ol>
+</div>
+<h2 id="use-pycharm">Use Pycharm<a class="headerlink" href="#use-pycharm" title="Permanent link">&para;</a></h2>
+<p>Now that your remote development VM is set up you should read the <a href="../use_pycharm">use PyCharm</a> documentation to get yourself started.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../local_development/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Local development" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Local development
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../use_pycharm/" class="md-footer__link md-footer__link--next" aria-label="Next: Use PyCharm" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Use PyCharm
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "navigation.expand", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+      
+        <script src="../../../../../javascripts/tables.js"></script>
+      
+    
+  </body>
+</html>

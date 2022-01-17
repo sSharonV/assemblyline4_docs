@@ -1,0 +1,2328 @@
+<!-- Elements added to main will be displayed on all pages -->
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../images/crane.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Appliance installation (MicroK8s) - Assemblyline 4</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#appliance-installation-microk8s" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Assemblyline 4" class="md-header__button md-logo" aria-label="Assemblyline 4" data-md-component="logo">
+      
+  <img src="../../../images/crane.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Assemblyline 4
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Appliance installation (MicroK8s)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="../../../fr/installation/appliance/" hreflang="fr" class="md-select__link">
+                    Français
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/CybercentreCanada/assemblyline4_docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../" class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../overview/how_it_works/" class="md-tabs__link">
+        Overview
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../user_manual/submitting_file/" class="md-tabs__link">
+        User's manual
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../deployment/" class="md-tabs__link md-tabs__link--active">
+        Installation
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../administration/signature_management/" class="md-tabs__link">
+        Administration
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../integration/ingestion_method/" class="md-tabs__link">
+        Integration
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../developer_manual/env/getting_started/" class="md-tabs__link">
+        Developer's guide
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Assemblyline 4" class="md-nav__button md-logo" aria-label="Assemblyline 4" data-md-component="logo">
+      
+  <img src="../../../images/crane.png" alt="logo">
+
+    </a>
+    Assemblyline 4
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/CybercentreCanada/assemblyline4_docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Overview" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/how_it_works/" class="md-nav__link">
+        How it works
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/services/" class="md-nav__link">
+        Assemblyline services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/community_services/" class="md-nav__link">
+        Community services
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          User's manual
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="User's manual" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          User's manual
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_manual/submitting_file/" class="md-nav__link">
+        Submitting a file for analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_manual/results/" class="md-nav__link">
+        Assemblyline results
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_manual/searching/" class="md-nav__link">
+        Searching
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Installation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Installation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Installation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        Choose your deployment type
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appliance_docker/" class="md-nav__link">
+        Appliance installation (Docker)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Appliance installation (MicroK8s)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Appliance installation (MicroK8s)
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup-requirements" class="md-nav__link">
+    Setup requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-pre-requisites" class="md-nav__link">
+    Install pre-requisites:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-the-assemblyline-chart-to-your-administration-computer" class="md-nav__link">
+    Get the Assemblyline chart to your administration computer
+  </a>
+  
+    <nav class="md-nav" aria-label="Get the Assemblyline chart to your administration computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-the-assemblyline-helm-charts" class="md-nav__link">
+    Get the Assemblyline helm charts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-your-personal-deployment" class="md-nav__link">
+    Create your personal deployment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-the-charts-and-secrets" class="md-nav__link">
+    Setup the charts and secrets
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-assemblyline-via-helm" class="md-nav__link">
+    Deploy Assemblyline via Helm:
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploy Assemblyline via Helm:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-namespace-for-your-assemblyline-install" class="md-nav__link">
+    Create a namespace for your Assemblyline install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-the-secret-to-the-namespace" class="md-nav__link">
+    Deploy the secret to the namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finally-lets-deploy-assemblylines-chart" class="md-nav__link">
+    Finally, let's deploy Assemblyline's chart:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-the-current-deployment" class="md-nav__link">
+    Updating the current deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-of-life-improvements" class="md-nav__link">
+    Quality of life improvements
+  </a>
+  
+    <nav class="md-nav" aria-label="Quality of life improvements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lens-ide" class="md-nav__link">
+    Lens IDE
+  </a>
+  
+    <nav class="md-nav" aria-label="Lens IDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-lens" class="md-nav__link">
+    Install Lens
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-lens" class="md-nav__link">
+    Configure Lens
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sudoless-access-to-microk8s" class="md-nav__link">
+    Sudoless access to MicroK8s
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alias-to-kubectl" class="md-nav__link">
+    Alias to Kubectl
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternative-installations" class="md-nav__link">
+    Alternative Installations
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster/" class="md-nav__link">
+        Cluster installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" data-md-state="indeterminate" type="checkbox" id="__nav_4_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_5">
+          Configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/config_file/" class="md-nav__link">
+        Configuration YAML file
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/authentication/" class="md-nav__link">
+        Authentication section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/core/" class="md-nav__link">
+        Core component section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/datasources/" class="md-nav__link">
+        Data sources section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/datastore/" class="md-nav__link">
+        Database section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/filestore/" class="md-nav__link">
+        File storage section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/logging/" class="md-nav__link">
+        Logging section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/services/" class="md-nav__link">
+        Service section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/submission/" class="md-nav__link">
+        Submission section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/system/" class="md-nav__link">
+        System section
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/ui/" class="md-nav__link">
+        User Interface section
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classification_engine/" class="md-nav__link">
+        Classification engine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        Monitoring with ELK
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Administration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Administration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Administration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/signature_management/" class="md-nav__link">
+        Signature Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/source_management/" class="md-nav__link">
+        Signature Source Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/service_management/" class="md-nav__link">
+        Service management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/system_safelist/" class="md-nav__link">
+        System safelist
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/user_management/" class="md-nav__link">
+        User Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/troubleshooting/" class="md-nav__link">
+        Troubleshooting / FAQ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Integration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Integration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/ingestion_method/" class="md-nav__link">
+        Choosing your ingestion method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/key_generation/" class="md-nav__link">
+        Generating an API key
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/python/" class="md-nav__link">
+        Python Client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/java/" class="md-nav__link">
+        Java Client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/rest/" class="md-nav__link">
+        RESTful API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" data-md-state="indeterminate" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Developer's guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developer's guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Developer's guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" data-md-state="indeterminate" type="checkbox" id="__nav_7_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_1">
+          Setup Environment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Setup Environment" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          Setup Environment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/env/getting_started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1_2" data-md-state="indeterminate" type="checkbox" id="__nav_7_1_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_1_2">
+          VSCode
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="VSCode" data-md-level="3">
+        <label class="md-nav__title" for="__nav_7_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          VSCode
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/env/vscode/setup_script/" class="md-nav__link">
+        Setup script
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/env/vscode/use_vscode/" class="md-nav__link">
+        Use VSCode
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1_3" data-md-state="indeterminate" type="checkbox" id="__nav_7_1_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_1_3">
+          Pycharm
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Pycharm" data-md-level="3">
+        <label class="md-nav__title" for="__nav_7_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pycharm
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/env/pycharm/local_development/" class="md-nav__link">
+        Local development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/env/pycharm/remote_development/" class="md-nav__link">
+        Remote development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/env/pycharm/use_pycharm/" class="md-nav__link">
+        Use PyCharm
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" data-md-state="indeterminate" type="checkbox" id="__nav_7_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_2">
+          Services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Services" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          Services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/services/developing_an_assemblyline_service/" class="md-nav__link">
+        Developing a service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/services/adding_a_service_updater/" class="md-nav__link">
+        Adding a Service Updater
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/services/run_your_service/" class="md-nav__link">
+        Run your service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2_4" data-md-state="indeterminate" type="checkbox" id="__nav_7_2_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_2_4">
+          Advanced development
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Advanced development" data-md-level="3">
+        <label class="md-nav__title" for="__nav_7_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Advanced development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/services/advanced/service_base/" class="md-nav__link">
+        ServiceBase Class
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/services/advanced/service_updater_base/" class="md-nav__link">
+        ServiceUpdater Class
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/services/advanced/request/" class="md-nav__link">
+        Request Class
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/services/advanced/result/" class="md-nav__link">
+        Result Class
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/services/advanced/result_section/" class="md-nav__link">
+        ResultSection Class
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/services/advanced/service_manifest/" class="md-nav__link">
+        Service manifest
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/services/advanced/service_updater_upgrade/" class="md-nav__link">
+        How-to: Upgrade Service Updater for Assemblyline 4.1+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/core/infrastructure/" class="md-nav__link">
+        Infrastructure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/frontend/frontend/" class="md-nav__link">
+        Frontend
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_manual/docs/docs/" class="md-nav__link">
+        Documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup-requirements" class="md-nav__link">
+    Setup requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-pre-requisites" class="md-nav__link">
+    Install pre-requisites:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-the-assemblyline-chart-to-your-administration-computer" class="md-nav__link">
+    Get the Assemblyline chart to your administration computer
+  </a>
+  
+    <nav class="md-nav" aria-label="Get the Assemblyline chart to your administration computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-the-assemblyline-helm-charts" class="md-nav__link">
+    Get the Assemblyline helm charts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-your-personal-deployment" class="md-nav__link">
+    Create your personal deployment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-the-charts-and-secrets" class="md-nav__link">
+    Setup the charts and secrets
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-assemblyline-via-helm" class="md-nav__link">
+    Deploy Assemblyline via Helm:
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploy Assemblyline via Helm:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-namespace-for-your-assemblyline-install" class="md-nav__link">
+    Create a namespace for your Assemblyline install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-the-secret-to-the-namespace" class="md-nav__link">
+    Deploy the secret to the namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finally-lets-deploy-assemblylines-chart" class="md-nav__link">
+    Finally, let's deploy Assemblyline's chart:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-the-current-deployment" class="md-nav__link">
+    Updating the current deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-of-life-improvements" class="md-nav__link">
+    Quality of life improvements
+  </a>
+  
+    <nav class="md-nav" aria-label="Quality of life improvements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lens-ide" class="md-nav__link">
+    Lens IDE
+  </a>
+  
+    <nav class="md-nav" aria-label="Lens IDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-lens" class="md-nav__link">
+    Install Lens
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-lens" class="md-nav__link">
+    Configure Lens
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sudoless-access-to-microk8s" class="md-nav__link">
+    Sudoless access to MicroK8s
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alias-to-kubectl" class="md-nav__link">
+    Alias to Kubectl
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternative-installations" class="md-nav__link">
+    Alternative Installations
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/CybercentreCanada/assemblyline4_docs/edit/master/docs/installation/appliance.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="appliance-installation-microk8s">Appliance installation (MicroK8s)<a class="headerlink" href="#appliance-installation-microk8s" title="Permanent link">&para;</a></h1>
+<p>This is the documentation for an appliance instance of the Assemblyline platform suited for smaller-scale deployments. Since we've used microk8s as the backend for this, the appliance setup can later be scaled to multiple nodes.</p>
+<h2 id="setup-requirements">Setup requirements<a class="headerlink" href="#setup-requirements" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Caveat</p>
+<p>The documentation provided here assumes that you are installing your appliance on an Ubuntu-based system and was only tested on Ubuntu 20.04. You might have to change the commands a bit if you use other Linux distributions.</p>
+<p>The recommended minimum system requirement for this appliance is <strong>6 CPU</strong> and <strong>12 GB</strong> of Ram.</p>
+</div>
+<h3 id="install-pre-requisites">Install pre-requisites:<a class="headerlink" href="#install-pre-requisites" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Online</label><div class="tabbed-content">
+<ol>
+<li>Install microk8s:
+<div class="highlight"><pre><span></span><code>sudo snap install microk8s --classic
+</code></pre></div></li>
+<li>Install microk8s addons:
+<div class="highlight"><pre><span></span><code>sudo microk8s <span class="nb">enable</span> dns ha-cluster storage metrics-server
+</code></pre></div></li>
+<li>Install Helm and set it up to use with microk8s:
+<div class="highlight"><pre><span></span><code>sudo snap install helm --classic
+sudo mkdir /var/snap/microk8s/current/bin
+sudo ln -s /snap/bin/helm /var/snap/microk8s/current/bin/helm
+</code></pre></div></li>
+<li>Install git:
+<div class="highlight"><pre><span></span><code>sudo apt install git
+</code></pre></div></li>
+<li>Install ingress controller:
+<div class="highlight"><pre><span></span><code>sudo microk8s kubectl create ns ingress
+sudo microk8s helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+sudo microk8s helm repo update
+sudo microk8s helm install ingress-nginx ingress-nginx/ingress-nginx --set controller.hostPort.enabled<span class="o">=</span><span class="nb">true</span> -n ingress
+</code></pre></div></li>
+</ol>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Offline</label><div class="tabbed-content">
+<ol>
+<li>
+<p>Download offline packages (On an internet-connected system):</p>
+<p>Create a directory to house everything to be transferred
+<div class="highlight"><pre><span></span><code>mkdir al_deps
+<span class="nb">cd</span> al_deps
+</code></pre></div>
+Download offline snap packages
+<div class="highlight"><pre><span></span><code><span class="k">for</span> snap_pkg <span class="k">in</span> <span class="s2">&quot;microk8s&quot;</span> <span class="s2">&quot;helm&quot;</span> <span class="s2">&quot;kubectl&quot;</span>
+<span class="k">do</span>
+    sudo snap download <span class="nv">$snap_pkg</span>
+<span class="k">done</span>
+</code></pre></div>
+Fetch helm charts
+<div class="highlight"><pre><span></span><code><span class="c1"># Clone the Assemblyline helm chart repo</span>
+git clone https://github.com/CybercentreCanada/assemblyline-helm-chart
+
+<span class="c1"># Download dependency helm charts</span>
+helm dependency update assemblyline-helm-chart/assemblyline/
+
+wget https://github.com/kubernetes/ingress-nginx/releases/download/helm-chart-4.0.12/ingress-nginx-4.0.12.tgz
+</code></pre></div>
+Fetch  container images
+<div class="highlight"><pre><span></span><code><span class="c1"># Calico CNI</span>
+<span class="k">for</span> container_image <span class="k">in</span> <span class="s2">&quot;cni&quot;</span> <span class="s2">&quot;pod2daemon-flexvol&quot;</span> <span class="s2">&quot;node&quot;</span>
+<span class="k">do</span>
+    docker pull calico/<span class="nv">$container_image</span>:v3.19.1 <span class="o">&amp;&amp;</span> docker save calico/<span class="nv">$container_image</span>:v3.19.1 &gt;&gt; calico_<span class="nv">$container_image</span>.tar
+<span class="k">done</span>
+docker pull calico/kube-controllers:v3.17.3 <span class="o">&amp;&amp;</span> docker save calico/kube-controllers:v3.17.3 &gt;&gt; calico_kube-controllers.tar
+
+<span class="c1"># NGINX-Ingress, refer to values.yaml in `charts` directory</span>
+<span class="k">for</span> container_image <span class="k">in</span> <span class="s2">&quot;controller:v1.1.0&quot;</span> <span class="s2">&quot;kube-webhook-certgen:v1.1.1&quot;</span>
+<span class="k">do</span>
+    docker pull k8s.gcr.io/ingress-nginx/<span class="nv">$container_image</span> <span class="o">&amp;&amp;</span> docker save k8s.gcr.io/ingress-nginx/<span class="nv">$container_image</span> &gt;&gt; <span class="nv">$container_image</span>.tar
+<span class="k">done</span>
+
+<span class="c1"># microk8s add-ons, refer to images used in corresponding .yaml files (https://github.com/ubuntu/microk8s/tree/master/microk8s-resources/actions)</span>
+<span class="nb">export</span> <span class="nv">ARCH</span><span class="o">=</span>amd64
+
+<span class="c1"># DNS, Storage, coreDNS, metrics-server container images</span>
+<span class="k">for</span> container_image <span class="k">in</span> <span class="s2">&quot;k8s-dns-kube-dns&quot;</span> <span class="s2">&quot;k8s-dns-dnsmasq-nanny&quot;</span> <span class="s2">&quot;k8s-dns-sidecar&quot;</span>
+<span class="k">do</span>
+    docker pull gcr.io/google_containers/<span class="nv">$container_image</span>-<span class="nv">$ARCH</span>:1.14.7 <span class="o">&amp;&amp;</span> docker save gcr.io/google_containers/<span class="nv">$container_image</span>-<span class="nv">$ARCH</span>:1.14.7 &gt;&gt; <span class="nv">$container_image</span>.tar
+<span class="k">done</span>
+docker pull k8s.gcr.io/pause:3.1 <span class="o">&amp;&amp;</span> docker save k8s.gcr.io/pause:3.1 &gt;&gt; pause.tar
+docker pull coredns/coredns:1.8.0 <span class="o">&amp;&amp;</span> docker save coredns/coredns:1.8.0 &gt;&gt; coredns.tar
+docker pull cdkbot/hostpath-provisioner-<span class="nv">$ARCH</span>:1.0.0 <span class="o">&amp;&amp;</span> docker save cdkbot/hostpath-provisioner-<span class="nv">$ARCH</span>:1.0.0 &gt;&gt; storage.tar
+docker pull k8s.gcr.io/metrics-server/metrics-server:v0.5.2 <span class="o">&amp;&amp;</span> docker save k8s.gcr.io/metrics-server/metrics-server:v0.5.2 &gt;&gt; metrics.tar
+
+<span class="c1"># Assemblyline Core (release: 4.2.stable)</span>
+<span class="k">for</span> al_image <span class="k">in</span> <span class="s2">&quot;core&quot;</span> <span class="s2">&quot;ui&quot;</span> <span class="s2">&quot;ui-frontend&quot;</span> <span class="s2">&quot;service-server&quot;</span> <span class="s2">&quot;socketio&quot;</span>
+<span class="k">do</span>
+    docker pull cccs/assemblyline-<span class="nv">$al_image</span>:4.2.stable <span class="o">&amp;&amp;</span> docker save cccs/assemblyline-<span class="nv">$al_image</span>:4.2.stable &gt;&gt; al_<span class="nv">$al_image</span>.tar
+<span class="k">done</span>
+
+<span class="c1"># Elastic</span>
+<span class="nv">ES_REG</span><span class="o">=</span>docker.elastic.co
+<span class="nv">ES_VER</span><span class="o">=</span><span class="m">7</span>.15.0
+<span class="k">for</span> beat <span class="k">in</span> <span class="s2">&quot;filebeat&quot;</span> <span class="s2">&quot;metricbeat&quot;</span>
+<span class="k">do</span>
+    docker pull <span class="nv">$ES_REG</span>/beats/<span class="nv">$beat</span>:<span class="nv">$ES_VER</span> <span class="o">&amp;&amp;</span> docker save <span class="nv">$ES_REG</span>/beats/<span class="nv">$beat</span>:<span class="nv">$ES_VER</span> &gt;&gt; es_<span class="nv">$beat</span>.tar
+<span class="k">done</span>
+<span class="k">for</span> es <span class="k">in</span> <span class="s2">&quot;logstash&quot;</span> <span class="s2">&quot;kibana&quot;</span> <span class="s2">&quot;elasticsearch&quot;</span>
+<span class="k">do</span>
+    docker pull <span class="nv">$ES_REG</span>/<span class="nv">$es</span>/<span class="nv">$es</span>:<span class="nv">$ES_VER</span> <span class="o">&amp;&amp;</span> docker save <span class="nv">$ES_REG</span>/<span class="nv">$es</span>/<span class="nv">$es</span>:<span class="nv">$ES_VER</span> &gt;&gt; es_<span class="nv">$es</span>.tar
+<span class="k">done</span>
+
+<span class="c1"># Filestore image (MinIO)</span>
+<span class="k">for</span> minio_image <span class="k">in</span> <span class="s2">&quot;minio:RELEASE.2021-02-14T04-01-33Z&quot;</span> <span class="s2">&quot;mc:RELEASE.2021-02-14T04-28-06Z&quot;</span>
+<span class="k">do</span>
+    docker pull minio/<span class="nv">$minio_image</span> <span class="o">&amp;&amp;</span> docker save minio/<span class="nv">$minio_image</span> &gt;&gt; minio_<span class="nv">$minio_image</span>.tar
+<span class="k">done</span>
+
+<span class="c1"># Redis image</span>
+docker pull redis <span class="o">&amp;&amp;</span> docker save redis &gt;&gt; redis.tar
+</code></pre></div>
+(Optional) Container Registry Image
+<div class="highlight"><pre><span></span><code>docker pull registry <span class="o">&amp;&amp;</span> docker save registry &gt;&gt; registry.tar
+</code></pre></div>
+(Optional) Pull official service images
+<div class="highlight"><pre><span></span><code><span class="k">for</span> svc_image <span class="k">in</span> apkaye beaver characterize configextractor cuckoo deobfuscripter emlparser espresso extract floss frankenstrings iparse metadefender metapeek oletools pdfid peepdf pefile pixaxe safelist sigma suricata swiffer tagcheck torrentslicer unpacme unpacker vipermonkey virustotal-dynamic virustotal-static xlmmacrodeobfuscator yara
+<span class="k">do</span>
+    docker pull cccs/assemblyline-service-<span class="nv">$svc_image</span>:stable <span class="o">&amp;&amp;</span> docker save cccs/assemblyline-service-<span class="nv">$svc_image</span>:stable &gt;&gt; <span class="nv">$svc_image</span>.tar
+<span class="k">done</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Load images into a container registry</p>
+<p>(Optional) Setup local container registry
+<div class="highlight"><pre><span></span><code><span class="c1"># Assumes Docker is installed on hosting system</span>
+<span class="k">for</span> container_image <span class="k">in</span> registry.tar<span class="o">)</span>:
+<span class="k">do</span>
+    sudo docker load -i <span class="nv">$container_image</span>
+<span class="k">done</span>
+
+<span class="c1"># Start up registry container</span>
+sudo docker run -dp <span class="m">32000</span>:5000 --restart<span class="o">=</span>always --name registry registry
+</code></pre></div>
+Load images from disk and push to registry
+<div class="highlight"><pre><span></span><code><span class="nv">REGISTRY</span><span class="o">=</span>localhost:32000
+<span class="c1"># Re-tag images and push to local registry</span>
+<span class="k">for</span> image <span class="k">in</span> <span class="k">$(</span>docker image ls --format <span class="o">{{</span>.Repository<span class="o">}}</span>:<span class="o">{{</span>.Tag<span class="o">}}</span><span class="k">)</span>
+<span class="k">do</span>
+    <span class="nv">image_tag</span><span class="o">=</span><span class="nv">$image</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="k">$(</span>grep -o <span class="s1">&#39;/&#39;</span> <span class="o">&lt;&lt;&lt;</span> <span class="nv">$image</span> <span class="p">|</span> wc -l<span class="k">)</span> -eq <span class="m">2</span> <span class="o">]</span>
+    <span class="k">then</span>
+        <span class="nv">image_tag</span><span class="o">=</span><span class="k">$(</span>cut -d <span class="s1">&#39;/&#39;</span> -f <span class="m">2</span>- <span class="o">&lt;&lt;&lt;</span> <span class="nv">$image</span><span class="k">)</span>
+    <span class="k">fi</span>
+    sudo docker tag <span class="nv">$image</span> <span class="nv">$REGISTRY</span>/<span class="nv">$image_tag</span> <span class="o">&amp;&amp;</span> docker push <span class="nv">$REGISTRY</span>/<span class="nv">$image_tag</span>
+    sudo docker image rm <span class="nv">$image</span>
+    sudo docker image rm <span class="nv">$REGISTRY</span>/<span class="nv">$image_tag</span>
+<span class="k">done</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Setup computing host(s):</p>
+<ol>
+<li>
+<p>Install microk8s
+<div class="highlight"><pre><span></span><code>sudo snap ack microk8s_*.assert
+sudo snap install microk8s_*.snap --classic
+</code></pre></div></p>
+</li>
+<li>
+<p>Modify Container Registry Endpoints
+<div class="highlight"><pre><span></span><code>sudo vim /var/snap/microk8s/current/args/containerd-template.toml
+</code></pre></div>
+Replace <em>REGISTRY</em> with the domain/port of your container registry (ie. localhost:32000)
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.registry.mirrors]</span><span class="w"></span>
+<span class="w">      </span><span class="k">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.registry.mirrors.&quot;docker.io&quot;]</span><span class="w"></span>
+<span class="w">        </span><span class="n">endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;https://registry-1.docker.io&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;http://&lt;REGISTRY&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+<span class="w">      </span><span class="k">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.registry.mirrors.&quot;*&quot;]</span><span class="w"></span>
+<span class="w">        </span><span class="n">endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;http://&lt;REGISTRY&gt;&quot;</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
+Restart containerd to acknowledge the changes
+<div class="highlight"><pre><span></span><code>sudo systemctl restart containerd
+</code></pre></div></p>
+</li>
+<li>
+<p>Enable microk8s add-ons
+<div class="highlight"><pre><span></span><code>sudo microk8s reset <span class="o">&amp;&amp;</span> sudo microk8s <span class="nb">enable</span> dns ha-cluster storage metrics-server
+</code></pre></div></p>
+</li>
+<li>Fetch kubeconfig for administration
+<div class="highlight"><pre><span></span><code>cp /var/snap/microk8s/current/credentials/client.config &lt;remote_destination&gt;
+</code></pre></div></li>
+</ol>
+</li>
+<li>
+<p>Install admin tools (separate or same host(s) for computing):
+<div class="highlight"><pre><span></span><code>sudo snap ack helm_*.assert
+sudo snap install helm_*.snap --classic
+
+sudo snap ack kubectl_*.assert
+sudo snap install kubectl_*.snap --classic
+
+<span class="c1"># Copy kubeconfig from cluster and make it accessible for kubectl/helm</span>
+<span class="nb">export</span> <span class="nv">KUBECONFIG</span><span class="o">=</span><span class="nv">$HOME</span>/.kube/config
+
+<span class="c1"># If installing on computing hosts</span>
+<span class="c1"># sudo mkdir /var/snap/microk8s/current/bin</span>
+<span class="c1"># sudo ln -s /snap/bin/helm /var/snap/microk8s/current/bin/helm</span>
+<span class="c1"># sudo ln -s /snap/bin/kubectl /var/snap/microk8s/current/bin/kubectl</span>
+
+<span class="c1"># (Optional) Install additional Kubernetes monitoring tools like k9s or Lens</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Install ingress:
+<div class="highlight"><pre><span></span><code><span class="c1"># These steps assume you know the digest of the re-tagged images required for the ingress-nginx helm chart</span>
+kubectl create ns ingress
+helm install ingress-nginx ./ingress-nginx-*.tgz --set controller.hostPort.enabled<span class="o">=</span><span class="nb">true</span> -n ingress
+</code></pre></div></p>
+</li>
+</ol>
+</div>
+</div>
+<details class="note">
+<summary>Adding more nodes (optional)</summary>
+<p><strong>Note: This can be done before or after the system is live.</strong></p>
+<p>Install required addon:
+<div class="highlight"><pre><span></span><code>sudo microk8s enable ha-cluster
+</code></pre></div></p>
+<p>From the master node, run:
+<div class="highlight"><pre><span></span><code>sudo microk8s add-node
+</code></pre></div></p>
+<p>This will generate a command with a token to be executed on a standby node.</p>
+<p>On your standby node, ensure the microk8s <code>ha-cluster</code> addon is enabled before
+running the command from the master to join the cluster.</p>
+<p>To verify the nodes are connected, run (on any node):
+<div class="highlight"><pre><span></span><code>sudo microk8s kubectl get nodes
+</code></pre></div></p>
+<p>Repeat this process for any additional standby nodes that are to be added.</p>
+<p>For more details, see: <a href="https://microk8s.io/docs/clustering">Clustering with MicroK8s</a></p>
+</details>
+<h2 id="get-the-assemblyline-chart-to-your-administration-computer">Get the Assemblyline chart to your administration computer<a class="headerlink" href="#get-the-assemblyline-chart-to-your-administration-computer" title="Permanent link">&para;</a></h2>
+<h3 id="get-the-assemblyline-helm-charts">Get the Assemblyline helm charts<a class="headerlink" href="#get-the-assemblyline-helm-charts" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>mkdir ~/git <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/git
+git clone https://github.com/CybercentreCanada/assemblyline-helm-chart.git
+</code></pre></div>
+<h3 id="create-your-personal-deployment">Create your personal deployment<a class="headerlink" href="#create-your-personal-deployment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>mkdir ~/git/deployment
+cp ~/git/assemblyline-helm-chart/appliance/*.yaml ~/git/deployment
+</code></pre></div>
+<h3 id="setup-the-charts-and-secrets">Setup the charts and secrets<a class="headerlink" href="#setup-the-charts-and-secrets" title="Permanent link">&para;</a></h3>
+<p>The <code>values.yaml</code> file in your deployment directory <code>~/git/deployment</code> is already pre-configured for use with microk8s as a basic one node minimal appliance. Make sure you go through the file to adjust disk sizes and to turn on/off features to your liking.</p>
+<p>The <code>secret.yaml</code> file in your deployment directory is preconfigured with default passwords, you should change them.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The secrets are used to set up during bootstrap so make sure you change them before deploying the <code>al</code> chart.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be sure to update any values as deemed necessary ie. FQDN</p>
+</div>
+<h2 id="deploy-assemblyline-via-helm">Deploy Assemblyline via Helm:<a class="headerlink" href="#deploy-assemblyline-via-helm" title="Permanent link">&para;</a></h2>
+<h3 id="create-a-namespace-for-your-assemblyline-install">Create a namespace for your Assemblyline install<a class="headerlink" href="#create-a-namespace-for-your-assemblyline-install" title="Permanent link">&para;</a></h3>
+<p>For this documentation, we will use <code>al</code> as the namespace.</p>
+<div class="highlight"><pre><span></span><code>sudo microk8s kubectl create namespace al
+</code></pre></div>
+<h3 id="deploy-the-secret-to-the-namespace">Deploy the secret to the namespace<a class="headerlink" href="#deploy-the-secret-to-the-namespace" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo microk8s kubectl apply -f ~/git/deployment/secrets.yaml --namespace<span class="o">=</span>al
+</code></pre></div>
+<p>From this point on, you don't need the secrets.yaml file anymore. You should delete it so there is no file on disk containing your passwords.</p>
+<div class="highlight"><pre><span></span><code>rm ~/git/deployment/secrets.yaml
+</code></pre></div>
+<h3 id="finally-lets-deploy-assemblylines-chart">Finally, let's deploy Assemblyline's chart:<a class="headerlink" href="#finally-lets-deploy-assemblylines-chart" title="Permanent link">&para;</a></h3>
+<p>For documentation, we will use <code>assemblyline</code> as the deployment name.</p>
+<div class="highlight"><pre><span></span><code>sudo microk8s helm install assemblyline ~/git/assemblyline-helm-chart/assemblyline -f ~/git/deployment/values.yaml -n al
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>After you've ran the <code>helm install</code> command, the system has a lot of setting up to do (Creating database indexes, loading service, setting up default accounts, loading signatures ...). Don't expect it to be fully operational for at least the next 15 minutes.</p>
+</div>
+<h2 id="updating-the-current-deployment">Updating the current deployment<a class="headerlink" href="#updating-the-current-deployment" title="Permanent link">&para;</a></h2>
+<p>Once you have your Assemblyline chart deployed through helm, you can change any values in the <code>values.yaml</code> file and upgrade your deployment with the following command:
+<div class="highlight"><pre><span></span><code>sudo microk8s helm upgrade assemblyline ~/git/assemblyline-helm-chart/assemblyline -f ~/git/deployment/values.yaml -n al
+</code></pre></div></p>
+<details class="tip">
+<summary>(Optional) Get the latest assemblyline-helm-chart</summary>
+<p>Before doing your <code>helm upgrade</code> command, you can get the latest changes that we did to the chart by pulling them. (This could conflict with the changes you've made so be careful while doing this.)
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/git/assemblyline-helm-chart <span class="o">&amp;&amp;</span> git pull
+</code></pre></div></p>
+</details>
+<h2 id="quality-of-life-improvements">Quality of life improvements<a class="headerlink" href="#quality-of-life-improvements" title="Permanent link">&para;</a></h2>
+<h3 id="lens-ide">Lens IDE<a class="headerlink" href="#lens-ide" title="Permanent link">&para;</a></h3>
+<p>If the computer on which your microk8s deployment is installed has a desktop interface, I strongly suggest that you use K8s Lens IDE to manage the system</p>
+<h4 id="install-lens">Install Lens<a class="headerlink" href="#install-lens" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>sudo snap install kontena-lens --classic
+</code></pre></div>
+<h4 id="configure-lens">Configure Lens<a class="headerlink" href="#configure-lens" title="Permanent link">&para;</a></h4>
+<p>After you run Lens for the first time, click the "Add cluster" menu/button, select the paste as text tab and paste the output of the following command:
+<div class="highlight"><pre><span></span><code>sudo microk8s kubectl config view --raw
+</code></pre></div></p>
+<h3 id="sudoless-access-to-microk8s">Sudoless access to MicroK8s<a class="headerlink" href="#sudoless-access-to-microk8s" title="Permanent link">&para;</a></h3>
+<p>MicroK8s require you to add sudo in front of every command, you can add your user to the microk8s group so you don't have to.</p>
+<div class="highlight"><pre><span></span><code>sudo usermod -a -G microk8s $USER
+sudo chown -f -R $USER ~/.kube
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">You will need to reboot for these changes to take effect</p>
+<p>Temporarily, you can add the group to your current shell by running the following:
+<div class="highlight"><pre><span></span><code>newgrp microk8s
+</code></pre></div></p>
+</div>
+<h3 id="alias-to-kubectl">Alias to Kubectl<a class="headerlink" href="#alias-to-kubectl" title="Permanent link">&para;</a></h3>
+<p>Since all is running inside microk8s you can create an alias to the kubectl command to make your life easier
+<div class="highlight"><pre><span></span><code>sudo snap alias microk8s.kubectl kubectl
+kubectl config set-context --current --namespace=al
+</code></pre></div></p>
+<h2 id="alternative-installations">Alternative Installations<a class="headerlink" href="#alternative-installations" title="Permanent link">&para;</a></h2>
+<p>We will officially only support microk8s installations for appliances, but you can technically install it on any local Kubernetes frameworks (k3s, minikube, kind...). That said there will be no documentation for these setups, and you will have to modify the <code>values.yaml</code> storage classes to fit with your desired framework.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../appliance_docker/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Appliance installation (Docker)" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Appliance installation (Docker)
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../cluster/" class="md-footer__link md-footer__link--next" aria-label="Next: Cluster installation" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Cluster installation
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.expand", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+      
+        <script src="../../../javascripts/tables.js"></script>
+      
+    
+  </body>
+</html>
